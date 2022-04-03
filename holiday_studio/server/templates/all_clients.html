@@ -1,0 +1,15 @@
+{% extends "base.html"%}
+
+{% block content %}
+<p>
+    {{ form.client_list.label }}<br>
+    {% for client in form.client_list %}
+    <h3>{{ client }}</h3>
+    {% endfor %}
+    {% for error in form.client_list.errors %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+    {% endfor %}
+</p>
+{% endblock %}

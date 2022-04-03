@@ -1,0 +1,15 @@
+{% extends "base.html"%}
+
+{% block content %}
+<p>
+    {{ form.order_list.label }}<br>
+    {% for order in form.order_list %}
+    <h3>{{ order }}</h3>
+    {% endfor %}
+    {% for error in form.order_list.errors %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+    {% endfor %}
+</p>
+{% endblock %}
