@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import SubmitField, StringField, FloatField, SelectField
-from wtforms.validators import DataRequired, optional
+from wtforms import SubmitField, StringField, FloatField
+from wtforms.validators import DataRequired
 from wtforms_sqlalchemy.fields import QuerySelectField
 
 from models import Client, create_session
@@ -13,8 +13,8 @@ def get_all_clients():
 
 
 class CreateOrderForm(FlaskForm):
-    price = FloatField("Цена заказа", validators=[DataRequired()])
     title = StringField("Название заказа", validators=[DataRequired()])
+    price = FloatField("Цена заказа", validators=[DataRequired()])
     describtion = StringField("Описание заказа", validators=[DataRequired()])
     client_list = QuerySelectField("Клиент",
                                    query_factory=get_all_clients,
